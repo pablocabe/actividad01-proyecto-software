@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de recetas | Recetas de Casa</title>
+  <meta name="description" content="Catálogo de recetas caseras agrupadas en dos categorías: saladas y dulces. Cada receta incluye foto y recetario completo en PDF.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="cabecera">
+    <p class="marca"><a href="index.html">Recetas <span class="marca-acento">de Casa</span></a></p>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul class="navegacion-lista">
+        <li><a href="index.html" aria-current="page">Catálogo</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" class="contenido">
+
+    <section class="portada" aria-labelledby="titulo-portada">
+      <h1 id="titulo-portada">Recetas caseras, explicadas paso a paso</h1>
+      <p class="portada-bajada">
+        Un recetario de cocina dividido en dos categorías: <strong>saladas</strong> y <strong>dulces</strong>.
+        Elegí una categoría y descargá el recetario completo en PDF.
+      </p>
+    </section>
+
+    <section class="catalogo" aria-labelledby="titulo-catalogo">
+      <h2 id="titulo-catalogo">Catálogo de recetas</h2>
+      <p class="catalogo-ayuda" id="ayuda-filtro">
+        Seleccioná una categoría para ver las recetas correspondientes en esta misma zona de la página.
+      </p>
+
+      <input class="filtro-radio" type="radio" name="categoria" id="filtro-todas"
+             aria-describedby="ayuda-filtro" checked>
+      <input class="filtro-radio" type="radio" name="categoria" id="filtro-salado"
+             aria-describedby="ayuda-filtro">
+      <input class="filtro-radio" type="radio" name="categoria" id="filtro-dulce"
+             aria-describedby="ayuda-filtro">
+
+      <ul class="filtros">
+        <li><label class="filtro-etiqueta" for="filtro-todas">Todas</label></li>
+        <li><label class="filtro-etiqueta filtro-etiqueta--salado" for="filtro-salado">Saladas</label></li>
+        <li><label class="filtro-etiqueta filtro-etiqueta--dulce" for="filtro-dulce">Dulces</label></li>
+      </ul>
+
+      <section class="grupo grupo--salado" id="grupo-salado" aria-labelledby="titulo-salado">
+        <h3 class="grupo-titulo" id="titulo-salado">Recetas saladas</h3>
+        <ul class="recetas">
+
+          <li>
+            <article class="receta" aria-labelledby="receta1-titulo">
+              <img class="receta-foto" src="imagenes/receta1.png" width="800" height="600" loading="lazy"
+                   alt="Empanadas de carne recién horneadas, doradas y con repulgue, sobre una fuente de barro.">
+              <h4 class="receta-titulo" id="receta1-titulo">Empanadas de carne cortada a cuchillo</h4>
+              <p class="receta-descripcion">Relleno jugoso de carne, cebolla y huevo, con masa criolla horneada.</p>
+              <ul class="receta-datos">
+                <li><span class="dato-clave">Porciones:</span> 12 unidades</li>
+                <li><span class="dato-clave">Tiempo:</span> 90 minutos</li>
+              </ul>
+              <a class="receta-enlace" href="recetarios/receta1.pdf" download>
+                Descargar receta en PDF
+                <span class="visualmente-oculto">de empanadas de carne cortada a cuchillo</span>
+              </a>
+            </article>
+          </li>
+
+          <li>
+            <article class="receta" aria-labelledby="receta2-titulo">
+              <img class="receta-foto" src="imagenes/receta2.png" width="800" height="600" loading="lazy"
+                   alt="Milanesa napolitana cubierta con salsa de tomate, jamón y queso gratinado, servida en un plato blanco.">
+              <h4 class="receta-titulo" id="receta2-titulo">Milanesa napolitana al horno</h4>
+              <p class="receta-descripcion">Milanesa crocante con salsa de tomate, jamón y muzzarella gratinada.</p>
+              <ul class="receta-datos">
+                <li><span class="dato-clave">Porciones:</span> 4</li>
+                <li><span class="dato-clave">Tiempo:</span> 50 minutos</li>
+              </ul>
+              <a class="receta-enlace" href="recetarios/receta2.pdf" download>
+                Descargar receta en PDF
+                <span class="visualmente-oculto">de milanesa napolitana al horno</span>
+              </a>
+            </article>
+          </li>
+
+          <li>
+            <article class="receta" aria-labelledby="receta3-titulo">
+              <img class="receta-foto" src="imagenes/receta3.png" width="800" height="600" loading="lazy"
+                   alt="Porción de tarta de espinaca y ricota con masa dorada, cortada sobre una tabla de madera.">
+              <h4 class="receta-titulo" id="receta3-titulo">Tarta de espinaca y ricota</h4>
+              <p class="receta-descripcion">Masa casera con relleno cremoso de espinaca, ricota y nuez moscada.</p>
+              <ul class="receta-datos">
+                <li><span class="dato-clave">Porciones:</span> 8</li>
+                <li><span class="dato-clave">Tiempo:</span> 70 minutos</li>
+              </ul>
+              <a class="receta-enlace" href="recetarios/receta3.pdf" download>
+                Descargar receta en PDF
+                <span class="visualmente-oculto">de tarta de espinaca y ricota</span>
+              </a>
+            </article>
+          </li>
+
+        </ul>
+      </section>
+
+      <section class="grupo grupo--dulce" id="grupo-dulce" aria-labelledby="titulo-dulce">
+        <h3 class="grupo-titulo" id="titulo-dulce">Recetas dulces</h3>
+        <ul class="recetas">
+
+          <li>
+            <article class="receta" aria-labelledby="receta4-titulo">
+              <img class="receta-foto" src="imagenes/receta4.png" width="800" height="600" loading="lazy"
+                   alt="Alfajores de maicena rellenos de dulce de leche y bordes cubiertos con coco rallado.">
+              <h4 class="receta-titulo" id="receta4-titulo">Alfajores de maicena</h4>
+              <p class="receta-descripcion">Tapas suaves que se deshacen, unidas con dulce de leche y coco.</p>
+              <ul class="receta-datos">
+                <li><span class="dato-clave">Porciones:</span> 20 unidades</li>
+                <li><span class="dato-clave">Tiempo:</span> 60 minutos</li>
+              </ul>
+              <a class="receta-enlace" href="recetarios/receta4.pdf" download>
+                Descargar receta en PDF
+                <span class="visualmente-oculto">de alfajores de maicena</span>
+              </a>
+            </article>
+          </li>
+
+          <li>
+            <article class="receta" aria-labelledby="receta5-titulo">
+              <img class="receta-foto" src="imagenes/receta5.png" width="800" height="600" loading="lazy"
+                   alt="Flan casero desmoldado con caramelo brillante y una porción de dulce de leche al costado.">
+              <h4 class="receta-titulo" id="receta5-titulo">Flan casero con dulce de leche</h4>
+              <p class="receta-descripcion">Flan de huevo cocido a baño María, con caramelo rubio y dulce de leche.</p>
+              <ul class="receta-datos">
+                <li><span class="dato-clave">Porciones:</span> 8</li>
+                <li><span class="dato-clave">Tiempo:</span> 80 minutos</li>
+              </ul>
+              <a class="receta-enlace" href="recetarios/receta5.pdf" download>
+                Descargar receta en PDF
+                <span class="visualmente-oculto">de flan casero con dulce de leche</span>
+              </a>
+            </article>
+          </li>
+
+          <li>
+            <article class="receta" aria-labelledby="receta6-titulo">
+              <img class="receta-foto" src="imagenes/receta6.png" width="800" height="600" loading="lazy"
+                   alt="Budín de limón con glaseado blanco y ralladura, cortado en rodajas sobre una rejilla.">
+              <h4 class="receta-titulo" id="receta6-titulo">Budín de limón con glaseado</h4>
+              <p class="receta-descripcion">Budín húmedo de limón y yogur, terminado con glaseado de azúcar impalpable.</p>
+              <ul class="receta-datos">
+                <li><span class="dato-clave">Porciones:</span> 10</li>
+                <li><span class="dato-clave">Tiempo:</span> 65 minutos</li>
+              </ul>
+              <a class="receta-enlace" href="recetarios/receta6.pdf" download>
+                Descargar receta en PDF
+                <span class="visualmente-oculto">de budín de limón con glaseado</span>
+              </a>
+            </article>
+          </li>
+
+        </ul>
+      </section>
+
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p class="pie-texto">Recetas de Casa &mdash; sitio mantenido por Pablo Cabe.</p>
+    <p class="pie-texto">Contenido publicado con fines educativos. HTML y CSS, sin JavaScript.</p>
+  </footer>
+</body>
+</html>

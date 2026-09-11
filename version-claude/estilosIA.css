@@ -1,0 +1,854 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Recetas de Casa — hoja de estilos única
+   HTML5 + CSS3, sin JavaScript ni frameworks.
+   Índice
+     1. Tokens de color y tipografía
+     2. Reinicio y base
+     3. Accesibilidad (salto de contenido, foco, texto oculto)
+     4. Cabecera y navegación
+     5. Estructura de contenido
+     6. Catálogo: filtro por categoría (radio button hack)
+     7. Tarjetas de receta
+     8. Páginas de contenido y formulario
+     9. Pie de página
+    10. Adaptaciones responsivas
+    11. Preferencias del usuario e impresión
+   ========================================================================== */
+
+/* 1. Tokens ================================================================ */
+
+:root {
+  --color-fondo: #F9F8F6;
+  --color-superficie: #FFFFFF;
+  --color-texto: #140F16;
+  --color-texto-secundario: #5A5260;
+  --color-borde: #DDD8E0;
+  --color-borde-receta: #37003C;
+  --color-acento: #37003C;
+  --color-acento-hover: #4D1A55;
+  --color-sobre-acento: #FFFFFF;
+  --color-error: #B42318;
+  --color-salado: #4A5D23;
+  --color-dulce: #A8576B;
+
+  --fuente-titulos: "Outfit", "Trebuchet MS", "Segoe UI", sans-serif;
+  --fuente-cuerpo: "Source Sans 3", "Source Sans Pro", "Segoe UI", system-ui, sans-serif;
+
+  --radio: 0.625rem;
+  --radio-chico: 0.375rem;
+  --sombra-suave: 0 1px 2px rgba(20, 15, 22, 0.06), 0 8px 24px rgba(20, 15, 22, 0.05);
+  --sombra-media: 0 2px 4px rgba(20, 15, 22, 0.08), 0 14px 32px rgba(55, 0, 60, 0.12);
+  --ancho-maximo: 72rem;
+  --transicion: 150ms ease-in-out;
+}
+
+/* 2. Reinicio y base ======================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-cuerpo);
+  font-size: 1rem;
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(1.9rem, 1.4rem + 2vw, 2.75rem); font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.45rem, 1.2rem + 1vw, 1.85rem); font-weight: 600; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+h4 { font-size: 1.1rem; font-weight: 600; }
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--color-acento);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--color-acento-hover);
+  text-decoration-thickness: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.9em;
+  background-color: #F0EDF2;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-chico);
+  padding: 0.05em 0.35em;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+/* 3. Accesibilidad ========================================================= */
+
+.salto-contenido {
+  position: absolute;
+  left: 0.75rem;
+  top: -4rem;
+  z-index: 100;
+  background-color: var(--color-acento);
+  color: var(--color-sobre-acento);
+  font-weight: 600;
+  padding: 0.65rem 1.1rem;
+  border-radius: 0 0 var(--radio) var(--radio);
+  text-decoration: none;
+  transition: top var(--transicion);
+}
+
+.salto-contenido:focus {
+  top: 0;
+  color: var(--color-sobre-acento);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 2px;
+  border-radius: var(--radio-chico);
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 4. Cabecera y navegación ================================================= */
+
+.cabecera {
+  background-color: var(--color-superficie);
+  border-bottom: 1px solid var(--color-borde);
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.marca {
+  margin: 0;
+  font-family: var(--fuente-titulos);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.marca a {
+  color: var(--color-texto);
+  text-decoration: none;
+}
+
+.marca a:hover .marca-acento {
+  color: var(--color-acento-hover);
+}
+
+.marca-acento {
+  color: var(--color-acento);
+}
+
+.navegacion-lista {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navegacion-lista a {
+  display: block;
+  font-family: var(--fuente-titulos);
+  font-weight: 500;
+  color: var(--color-texto);
+  text-decoration: none;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: var(--radio-chico);
+  transition: background-color var(--transicion), color var(--transicion), border-color var(--transicion);
+}
+
+.navegacion-lista a:hover {
+  background-color: #F3EFF5;
+  border-color: var(--color-borde);
+  color: var(--color-acento-hover);
+}
+
+.navegacion-lista a[aria-current="page"] {
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-sobre-acento);
+}
+
+.navegacion-lista a[aria-current="page"]:hover {
+  background-color: var(--color-acento-hover);
+  border-color: var(--color-acento-hover);
+  color: var(--color-sobre-acento);
+}
+
+/* 5. Estructura de contenido =============================================== */
+
+.contenido {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem);
+}
+
+.portada {
+  margin-bottom: 2.5rem;
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--color-acento);
+}
+
+.portada-bajada {
+  color: var(--color-texto-secundario);
+  font-size: 1.1rem;
+  max-width: 58ch;
+  margin-bottom: 0;
+}
+
+/* Páginas internas: la portada ocupa el ancho completo y los paneles se
+   reparten en dos columnas a partir de 60rem. */
+.contenido--dos-columnas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  align-items: start;
+  gap: 1.75rem;
+}
+
+.contenido--dos-columnas .portada {
+  grid-column: 1 / -1;
+  margin-bottom: 0.75rem;
+}
+
+.panel {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-suave);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: 0;
+}
+
+.panel p,
+.panel li {
+  max-width: 62ch;
+}
+
+.panel h2 {
+  color: var(--color-acento);
+}
+
+.panel h3 {
+  margin-top: 1.75rem;
+  color: var(--color-acento);
+}
+
+.panel > :last-child {
+  margin-bottom: 0;
+}
+
+.panel--lateral {
+  background-color: #FCFBFA;
+  border-top: 4px solid var(--color-acento);
+}
+
+.panel--lateral h2 {
+  font-size: 1.25rem;
+}
+
+.lista-pasos {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+}
+
+.lista-pasos li {
+  margin-bottom: 0.4rem;
+}
+
+/* 6. Catálogo: filtro por categoría ======================================== */
+
+.catalogo-ayuda {
+  color: var(--color-texto-secundario);
+  max-width: 90ch;
+}
+
+/* Los radios se ocultan visualmente pero siguen siendo enfocables y
+   anunciados por los lectores de pantalla. */
+.filtro-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.filtros {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.filtro-etiqueta {
+  display: block;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-borde);
+  border-radius: 2rem;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transicion), border-color var(--transicion), color var(--transicion);
+}
+
+.filtro-etiqueta:hover {
+  border-color: var(--color-acento-hover);
+  color: var(--color-acento-hover);
+}
+
+.filtro-etiqueta--salado:hover { border-color: var(--color-salado); color: var(--color-salado); }
+.filtro-etiqueta--dulce:hover  { border-color: var(--color-dulce);  color: var(--color-dulce); }
+
+/* Estado seleccionado de cada etiqueta */
+#filtro-todas:checked ~ .filtros .filtro-etiqueta[for="filtro-todas"],
+#filtro-salado:checked ~ .filtros .filtro-etiqueta[for="filtro-salado"],
+#filtro-dulce:checked ~ .filtros .filtro-etiqueta[for="filtro-dulce"] {
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-sobre-acento);
+}
+
+#filtro-salado:checked ~ .filtros .filtro-etiqueta[for="filtro-salado"] {
+  background-color: var(--color-salado);
+  border-color: var(--color-salado);
+}
+
+#filtro-dulce:checked ~ .filtros .filtro-etiqueta[for="filtro-dulce"] {
+  background-color: var(--color-dulce);
+  border-color: var(--color-dulce);
+}
+
+/* Foco de teclado trasladado del input oculto a su etiqueta visible */
+#filtro-todas:focus-visible ~ .filtros .filtro-etiqueta[for="filtro-todas"],
+#filtro-salado:focus-visible ~ .filtros .filtro-etiqueta[for="filtro-salado"],
+#filtro-dulce:focus-visible ~ .filtros .filtro-etiqueta[for="filtro-dulce"] {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 3px;
+}
+
+@supports not selector(:focus-visible) {
+  #filtro-todas:focus ~ .filtros .filtro-etiqueta[for="filtro-todas"],
+  #filtro-salado:focus ~ .filtros .filtro-etiqueta[for="filtro-salado"],
+  #filtro-dulce:focus ~ .filtros .filtro-etiqueta[for="filtro-dulce"] {
+    outline: 3px solid var(--color-acento);
+    outline-offset: 3px;
+  }
+}
+
+/* Visibilidad de los grupos de recetas según la categoría elegida */
+.grupo {
+  display: none;
+}
+
+#filtro-todas:checked ~ .grupo,
+#filtro-salado:checked ~ #grupo-salado,
+#filtro-dulce:checked ~ #grupo-dulce {
+  display: block;
+}
+
+.grupo + .grupo {
+  margin-top: 2.5rem;
+}
+
+.grupo-titulo {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-borde);
+}
+
+.grupo--salado .grupo-titulo { color: var(--color-salado); border-bottom-color: var(--color-salado); }
+.grupo--dulce .grupo-titulo  { color: var(--color-dulce);  border-bottom-color: var(--color-dulce); }
+
+/* 7. Tarjetas de receta ==================================================== */
+
+.recetas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1.5rem;
+}
+
+.recetas > li {
+  display: flex;
+}
+
+.receta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-borde-receta);
+  border-radius: var(--radio);
+  padding: 1rem;
+  box-shadow: var(--sombra-suave);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.receta:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-media);
+}
+
+.receta-foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-chico);
+  background-color: #F0EDF2;
+  margin-bottom: 0.9rem;
+}
+
+.receta-titulo {
+  margin-bottom: 0.4rem;
+  color: var(--color-acento);
+}
+
+.receta-descripcion {
+  color: var(--color-texto-secundario);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.receta-datos {
+  list-style: none;
+  margin: 0 0 1.1rem;
+  padding: 0.65rem 0 0;
+  border-top: 1px solid var(--color-borde);
+  font-size: 0.9rem;
+  color: var(--color-texto-secundario);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.dato-clave {
+  font-weight: 600;
+  color: var(--color-texto);
+}
+
+.receta-enlace {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-block;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: 0.95rem;
+  background-color: var(--color-acento);
+  color: var(--color-sobre-acento);
+  text-decoration: none;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid var(--color-acento);
+  border-radius: var(--radio-chico);
+  transition: background-color var(--transicion), border-color var(--transicion);
+}
+
+.receta-enlace::after {
+  content: " ↓";
+}
+
+.receta-enlace:hover,
+.receta-enlace:focus {
+  background-color: var(--color-acento-hover);
+  border-color: var(--color-acento-hover);
+  color: var(--color-sobre-acento);
+}
+
+/* 8. Formulario y datos de contacto ======================================== */
+
+.formulario-ayuda {
+  color: var(--color-texto-secundario);
+  font-size: 0.95rem;
+}
+
+.campos {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 1rem 1.25rem 0.25rem;
+  margin: 0 0 1.5rem;
+  min-width: 0;
+}
+
+.campos legend {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  color: var(--color-acento);
+  padding: 0 0.5rem;
+}
+
+/* Reparte los campos en columnas cuando hay ancho suficiente */
+.campos--grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  column-gap: 1.5rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.campo--medio {
+  max-width: 24rem;
+}
+
+.campo label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.campo-ayuda {
+  color: var(--color-texto-secundario);
+  font-size: 0.85rem;
+}
+
+.obligatorio {
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-texto);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-chico);
+  padding: 0.6rem 0.75rem;
+  width: 100%;
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--color-acento-hover);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 3px rgba(55, 0, 60, 0.15);
+}
+
+::placeholder {
+  color: #8A8291;
+  opacity: 1;
+}
+
+.campo--casilla {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.campo--casilla input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--color-acento);
+  flex: none;
+}
+
+.campo--casilla label {
+  font-weight: 400;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0;
+}
+
+.boton {
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--color-acento);
+  color: var(--color-sobre-acento);
+  border: 2px solid var(--color-acento);
+  border-radius: var(--radio-chico);
+  padding: 0.65rem 1.4rem;
+  cursor: pointer;
+  transition: background-color var(--transicion), border-color var(--transicion), color var(--transicion);
+}
+
+.boton:hover {
+  background-color: var(--color-acento-hover);
+  border-color: var(--color-acento-hover);
+}
+
+.boton--secundario {
+  background-color: var(--color-superficie);
+  color: var(--color-acento);
+}
+
+.boton--secundario:hover {
+  background-color: #F3EFF5;
+  color: var(--color-acento-hover);
+}
+
+.datos-contacto {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(9rem, auto) 1fr;
+  gap: 0.5rem 1.5rem;
+}
+
+.datos-contacto dt {
+  font-weight: 600;
+  color: var(--color-texto-secundario);
+}
+
+.datos-contacto dd {
+  margin: 0;
+}
+
+/* Variante para columnas angostas: clave y valor uno debajo del otro */
+.datos-contacto--apilados {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin-top: 1.25rem;
+}
+
+.datos-contacto--apilados dt {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.datos-contacto--apilados dd {
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.datos-contacto--apilados dd:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.direccion {
+  font-style: normal;
+  display: inline;
+}
+
+/* 9. Pie de página ========================================================= */
+
+.pie {
+  flex: none;
+  background-color: var(--color-acento);
+  color: var(--color-sobre-acento);
+  padding: 1.75rem clamp(1rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.pie-texto {
+  margin: 0 auto;
+  max-width: var(--ancho-maximo);
+  font-size: 0.95rem;
+}
+
+.pie-texto + .pie-texto {
+  margin-top: 0.35rem;
+  opacity: 0.85;
+}
+
+/* 10. Adaptaciones responsivas ============================================= */
+
+@media (max-width: 48rem) {
+  .cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navegacion,
+  .navegacion-lista {
+    width: 100%;
+  }
+
+  .navegacion-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .navegacion-lista a {
+    text-align: center;
+    padding-inline: 0.4rem;
+  }
+
+  .datos-contacto {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .datos-contacto dd {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtro-etiqueta {
+    text-align: center;
+  }
+
+  .recetas {
+    grid-template-columns: 1fr;
+  }
+
+  .receta-enlace {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+@media (min-width: 60rem) {
+  .contenido--dos-columnas {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .portada {
+    padding-left: 1.75rem;
+  }
+}
+
+/* 11. Preferencias del usuario e impresión ================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .receta:hover {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .filtro-etiqueta,
+  .receta,
+  .boton {
+    border: 2px solid ButtonBorder;
+  }
+}
+
+@media print {
+  .cabecera,
+  .filtros,
+  .salto-contenido {
+    display: none;
+  }
+
+  .grupo {
+    display: block !important;
+  }
+
+  body {
+    background-color: #FFFFFF;
+  }
+
+  .receta {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre mí | Recetas de Casa</title>
+  <meta name="description" content="Pablo Cabe, responsable del sitio Recetas de Casa: quién mantiene el recetario y cómo se publica cada receta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="cabecera">
+    <p class="marca"><a href="index.html">Recetas <span class="marca-acento">de Casa</span></a></p>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul class="navegacion-lista">
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="sobre-mi.html" aria-current="page">Sobre mí</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" class="contenido contenido--dos-columnas">
+
+    <section class="portada" aria-labelledby="titulo-portada">
+      <h1 id="titulo-portada">Sobre mí</h1>
+      <p class="portada-bajada">
+        Quién mantiene este recetario y con qué criterio se publica cada receta.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="titulo-quien">
+      <h2 id="titulo-quien">Pablo Cabe</h2>
+      <p>
+        Soy Pablo Cabe, estudiante de la Licenciatura en Sistemas y responsable de <strong>Recetas de Casa</strong>.
+        Cocino desde hace años siguiendo recetas familiares y, cada vez que ajusto una, la anoto para no
+        perder el detalle. Este sitio es la versión ordenada de esos apuntes.
+      </p>
+      <p>
+        Todas las recetas que se publican acá están cocinadas y probadas al menos tres veces antes de subirse.
+        Si una preparación no sale igual de bien en una cocina común, con horno doméstico y utensilios básicos,
+        no entra al catálogo.
+      </p>
+      <p>
+        Si querés compartir una variante, señalar un error o pedir una receta puntual, escribime desde la
+        <a href="contacto.html">página de contacto</a>. Respondo todos los mensajes.
+      </p>
+    </section>
+
+    <aside class="panel panel--lateral" aria-labelledby="titulo-ficha">
+      <h2 id="titulo-ficha">En pocas palabras</h2>
+      <dl class="datos-contacto datos-contacto--apilados">
+        <dt>Responsable</dt>
+        <dd>Pablo Cabe</dd>
+
+        <dt>Ubicación</dt>
+        <dd><address class="direccion">Córdoba, Argentina</address></dd>
+
+        <dt>Recetas publicadas</dt>
+        <dd>6 (3 saladas y 3 dulces)</dd>
+
+        <dt>Formato</dt>
+        <dd>Ficha en pantalla y recetario completo en PDF</dd>
+
+        <dt>Actualización</dt>
+        <dd>Una receta nueva por mes</dd>
+      </dl>
+    </aside>
+
+    <section class="panel" aria-labelledby="titulo-sitio">
+      <h2 id="titulo-sitio">Sobre este sitio</h2>
+      <p>
+        <strong>Recetas de Casa</strong> es un sitio estático construido únicamente con HTML5 y CSS3, sin
+        JavaScript ni frameworks de estilos. El filtrado por categoría funciona con la técnica de
+        <em>radio buttons</em> y la pseudoclase <code>:checked</code>, de manera que el sitio sigue siendo
+        utilizable aunque el navegador tenga los scripts deshabilitados.
+      </p>
+      <p>
+        La estructura sigue etiquetas semánticas de HTML5 y las recomendaciones de accesibilidad WAI/WCAG del
+        W3C: contraste suficiente, texto alternativo en todas las imágenes, navegación por teclado y foco visible.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="titulo-metodo">
+      <h2 id="titulo-metodo">Cómo se arma cada receta</h2>
+      <ol class="lista-pasos">
+        <li>Se cocina la preparación anotando cantidades exactas, tiempos y temperaturas reales de horno.</li>
+        <li>Se repite la preparación para verificar que los tiempos se sostengan y ajustar lo que haga falta.</li>
+        <li>Se fotografía el resultado final, sin retoques que cambien el aspecto real del plato.</li>
+        <li>Se redacta el recetario en PDF con ingredientes, procedimiento y notas de la cocina.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p class="pie-texto">Recetas de Casa &mdash; sitio mantenido por Pablo Cabe.</p>
+    <p class="pie-texto">Contenido publicado con fines educativos. HTML y CSS, sin JavaScript.</p>
+  </footer>
+</body>
+</html>

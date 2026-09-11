@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | Recetas de Casa</title>
+  <meta name="description" content="Formulario de contacto e información para escribirle a Pablo Cabe, responsable del sitio Recetas de Casa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="cabecera">
+    <p class="marca"><a href="index.html">Recetas <span class="marca-acento">de Casa</span></a></p>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul class="navegacion-lista">
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" class="contenido contenido--dos-columnas">
+
+    <section class="portada" aria-labelledby="titulo-portada">
+      <h1 id="titulo-portada">Contacto</h1>
+      <p class="portada-bajada">
+        Dudas sobre una preparación, correcciones o pedidos de recetas: todo se contesta por acá.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Escribime un mensaje</h2>
+      <p class="formulario-ayuda">
+        Los campos marcados con asterisco (<span aria-hidden="true">*</span><span class="visualmente-oculto">obligatorio</span>)
+        son obligatorios. El formulario abre tu programa de correo con el mensaje ya redactado.
+      </p>
+
+      <form class="formulario" action="mailto:pablo.cabe@recetasdecasa.ar" method="post" enctype="text/plain">
+        <fieldset class="campos campos--grilla">
+          <legend>Tus datos</legend>
+
+          <p class="campo">
+            <label for="nombre">Nombre y apellido <abbr class="obligatorio" title="obligatorio">*</abbr></label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required
+                   placeholder="Ana Gómez">
+          </p>
+
+          <p class="campo">
+            <label for="correo">Correo electrónico <abbr class="obligatorio" title="obligatorio">*</abbr></label>
+            <input type="email" id="correo" name="correo" autocomplete="email" required
+                   placeholder="ana@ejemplo.com" aria-describedby="ayuda-correo">
+            <small class="campo-ayuda" id="ayuda-correo">Lo uso solamente para responderte.</small>
+          </p>
+        </fieldset>
+
+        <fieldset class="campos">
+          <legend>Tu consulta</legend>
+
+          <p class="campo campo--medio">
+            <label for="motivo">Motivo del mensaje</label>
+            <select id="motivo" name="motivo">
+              <option value="consulta">Consulta sobre una receta</option>
+              <option value="correccion">Corrección o error detectado</option>
+              <option value="pedido">Pedido de una receta nueva</option>
+              <option value="otro">Otro</option>
+            </select>
+          </p>
+
+          <p class="campo">
+            <label for="mensaje">Mensaje <abbr class="obligatorio" title="obligatorio">*</abbr></label>
+            <textarea id="mensaje" name="mensaje" rows="6" required
+                      placeholder="Contame en qué paso te trabaste o qué receta te gustaría ver."></textarea>
+          </p>
+
+          <p class="campo campo--casilla">
+            <input type="checkbox" id="copia" name="copia" value="si">
+            <label for="copia">Quiero recibir una copia de mi mensaje</label>
+          </p>
+        </fieldset>
+
+        <p class="acciones">
+          <button class="boton" type="submit">Enviar mensaje</button>
+          <button class="boton boton--secundario" type="reset">Borrar formulario</button>
+        </p>
+      </form>
+    </section>
+
+    <section class="panel panel--lateral" aria-labelledby="titulo-datos">
+      <h2 id="titulo-datos">Otros datos de contacto</h2>
+      <dl class="datos-contacto datos-contacto--apilados">
+        <dt>Responsable</dt>
+        <dd>Pablo Cabe</dd>
+
+        <dt>Correo electrónico</dt>
+        <dd><a href="mailto:pablo.cabe@recetasdecasa.ar">pablo.cabe@recetasdecasa.ar</a></dd>
+
+        <dt>Teléfono</dt>
+        <dd><a href="tel:+543514000000">+54 351 400 0000</a></dd>
+
+        <dt>Ubicación</dt>
+        <dd><address class="direccion">Córdoba, Argentina</address></dd>
+
+        <dt>Tiempo de respuesta</dt>
+        <dd>Hasta 48 horas hábiles.</dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p class="pie-texto">Recetas de Casa &mdash; sitio mantenido por Pablo Cabe.</p>
+    <p class="pie-texto">Contenido publicado con fines educativos. HTML y CSS, sin JavaScript.</p>
+  </footer>
+</body>
+</html>
