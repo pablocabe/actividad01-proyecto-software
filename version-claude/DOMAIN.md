@@ -19,17 +19,17 @@ decisiones tomadas para implementarlo.
 >
 >     **Modo claro:**
 >
->     - **Fondo:** `#F9F8F6` (crema cálido, reemplaza el gris frío `#F4F3F5`)
+>     - **Fondo:** `#F9F8F6`
 >     - **Superficie:** `#FFFFFF`
 >     - **Texto:** `#140F16`
->     - **Texto secundario (opcional):** `#5A5260`
+>     - **Texto secundario:** `#5A5260`
 >     - **Borde general:** `#DDD8E0`
->     - **Borde de tarjetas de receta:** `#37003C` (2px, para cumplir el requisito de borde armónico del enunciado)
+>     - **Borde de tarjetas de receta:** `#37003C`
 >     - **Acento:** `#37003C`
 >     - **Hover:** `#4D1A55`
 >     - **Texto sobre acento:** `#FFFFFF`
 >     - **Error:** `#B42318`
->     - **Colores secundarios para categorías (opcional):**
+>     - **Colores secundarios para categorías:**
 >         - Salado: `#4A5D23` (verde oliva)
 >         - Dulce: `#A8576B` (rosa empolvado)
 >
