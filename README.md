@@ -6,8 +6,8 @@
 **Pasos para ejecutar el proyecto localmente**
 
 1. **Clonar el repositorio**
+   
    Ejecutá:
-
    `git clone [URL_DEL_REPOSITORIO]`
 
 2. **Levantar el servidor local**
