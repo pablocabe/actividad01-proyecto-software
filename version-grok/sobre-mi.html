@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quién mantiene el sitio | Cocina Cabe</title>
+  <meta name="description" content="Pablo Cabe, responsable de Cocina Cabe: quién mantiene el recetario y con qué criterio se publica cada receta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+  <a class="saltar" href="#principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <p class="marca"><a href="index.html">Cocina <span>Cabe</span></a></p>
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="sobre-mi.html" aria-current="page">Sobre mí</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="principal" class="pagina-interna">
+    <header class="intro">
+      <p class="intro-etiqueta">El recetario</p>
+      <h1>Quién mantiene el sitio</h1>
+      <p class="intro-texto">
+        Pablo Cabe publica acá recetas probadas en una cocina doméstica,
+        con cantidades reales y un PDF para cocinar sin improvisar.
+      </p>
+    </header>
+
+    <section class="bloque" aria-labelledby="titulo-pablo">
+      <h2 id="titulo-pablo">Pablo Cabe</h2>
+      <p>
+        Soy Pablo Cabe, estudiante de la Licenciatura en Sistemas y responsable de
+        <strong>Cocina Cabe</strong>. Cocino con recetas de familia y con las que voy
+        ajustando con el tiempo. Este sitio es la versión ordenada de esos apuntes:
+        una ficha en pantalla y un recetario descargable.
+      </p>
+      <p>
+        Cada receta se prueba al menos tres veces antes de publicarse. Si no se sostiene
+        en un horno común, con utensilios básicos y productos de almacén, no entra al catálogo.
+      </p>
+      <p>
+        Si encontrás un error, querés una variante o pedís una receta puntual,
+        usá la <a href="contacto.html">página de contacto</a>. Respondo todos los mensajes.
+      </p>
+    </section>
+
+    <aside class="bloque bloque-lateral" aria-labelledby="titulo-resumen">
+      <h2 id="titulo-resumen">En breve</h2>
+      <dl class="ficha-datos">
+        <dt>Responsable</dt>
+        <dd>Pablo Cabe</dd>
+        <dt>Lugar</dt>
+        <dd><address>Córdoba, Argentina</address></dd>
+        <dt>Recetas</dt>
+        <dd>6 publicadas: 3 saladas y 3 dulces</dd>
+        <dt>Formato</dt>
+        <dd>Ficha en la web y recetario en PDF</dd>
+        <dt>Actualización</dt>
+        <dd>Una receta nueva por mes</dd>
+      </dl>
+    </aside>
+
+    <section class="bloque bloque-ancho" aria-labelledby="titulo-sitio">
+      <h2 id="titulo-sitio">Sobre este sitio</h2>
+      <p>
+        <strong>Cocina Cabe</strong> es un sitio estático hecho solo con HTML5 y CSS3.
+        No usa JavaScript ni librerías de estilos. El filtro de categoría funciona con
+        el <em>Radio Button Hack</em>: radios ocultos, la pseudoclase <code>:checked</code>
+        y el combinador de hermanos <code>~</code>.
+      </p>
+      <p>
+        La maqueta sigue etiquetas semánticas de HTML5 y las pautas WAI/WCAG del W3C:
+        contraste suficiente, texto alternativo, navegación por teclado y foco visible.
+      </p>
+    </section>
+
+    <section class="bloque bloque-ancho" aria-labelledby="titulo-metodo">
+      <h2 id="titulo-metodo">Cómo entra una receta al catálogo</h2>
+      <ol class="pasos">
+        <li>Se cocina anotando cantidades, tiempos y temperatura real del horno.</li>
+        <li>Se repite la preparación para confirmar que el resultado se sostiene.</li>
+        <li>Se fotografía el plato terminado, sin cambiar su aspecto real.</li>
+        <li>Se arma el PDF con ingredientes, procedimiento y notas de cocina.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Cocina Cabe — sitio mantenido por Pablo Cabe.</p>
+    <p>Sitio estático con HTML y CSS. Sin JavaScript.</p>
+  </footer>
+</body>
+</html>

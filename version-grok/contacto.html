@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | Cocina Cabe</title>
+  <meta name="description" content="Formulario de contacto e información para escribirle a Pablo Cabe, responsable de Cocina Cabe.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+  <a class="saltar" href="#principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <p class="marca"><a href="index.html">Cocina <span>Cabe</span></a></p>
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="principal" class="pagina-interna">
+    <header class="intro">
+      <p class="intro-etiqueta">Escribime</p>
+      <h1>Información de contacto</h1>
+      <p class="intro-texto">
+        Consultas sobre una receta, un error en el recetario o un pedido nuevo.
+        El formulario abre tu programa de correo con el mensaje listo para enviar.
+      </p>
+    </header>
+
+    <section class="bloque" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Formulario</h2>
+      <p class="ayuda">
+        Los campos marcados con
+        <abbr class="requerido" title="obligatorio">*</abbr>
+        son obligatorios.
+      </p>
+
+      <form action="mailto:pablo.cabe@cocinacabe.ar" method="post" enctype="text/plain">
+        <fieldset>
+          <legend>Tus datos</legend>
+          <p class="campo">
+            <label for="nombre">Nombre y apellido <abbr class="requerido" title="obligatorio">*</abbr></label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required maxlength="80" placeholder="Ana Gómez">
+          </p>
+          <p class="campo">
+            <label for="correo">Correo electrónico <abbr class="requerido" title="obligatorio">*</abbr></label>
+            <input type="email" id="correo" name="correo" autocomplete="email" required maxlength="120" placeholder="ana@ejemplo.com" aria-describedby="ayuda-correo">
+            <small id="ayuda-correo">Lo uso solo para responderte.</small>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Tu mensaje</legend>
+          <p class="campo">
+            <label for="motivo">Motivo</label>
+            <select id="motivo" name="motivo">
+              <option value="consulta">Consulta sobre una receta</option>
+              <option value="correccion">Corrección o error</option>
+              <option value="pedido">Pedido de receta nueva</option>
+              <option value="otro">Otro</option>
+            </select>
+          </p>
+          <p class="campo">
+            <label for="mensaje">Mensaje <abbr class="requerido" title="obligatorio">*</abbr></label>
+            <textarea id="mensaje" name="mensaje" rows="7" required maxlength="2000" placeholder="Contame en qué paso te trabaste o qué receta te gustaría ver publicada."></textarea>
+          </p>
+        </fieldset>
+
+        <p class="acciones">
+          <button class="boton" type="submit">Enviar mensaje</button>
+          <button class="boton boton-secundario" type="reset">Limpiar campos</button>
+        </p>
+      </form>
+    </section>
+
+    <aside class="bloque bloque-lateral" aria-labelledby="titulo-datos">
+      <h2 id="titulo-datos">Otros datos</h2>
+      <dl class="ficha-datos">
+        <dt>Responsable</dt>
+        <dd>Pablo Cabe</dd>
+        <dt>Correo</dt>
+        <dd><a href="mailto:pablo.cabe@cocinacabe.ar">pablo.cabe@cocinacabe.ar</a></dd>
+        <dt>Teléfono</dt>
+        <dd><a href="tel:+543514000000">+54 351 400 0000</a></dd>
+        <dt>Lugar</dt>
+        <dd><address>Córdoba, Argentina</address></dd>
+        <dt>Respuesta</dt>
+        <dd>Hasta 48 horas hábiles</dd>
+      </dl>
+    </aside>
+  </main>
+
+  <footer class="pie">
+    <p>Cocina Cabe — sitio mantenido por Pablo Cabe.</p>
+    <p>Sitio estático con HTML y CSS. Sin JavaScript.</p>
+  </footer>
+</body>
+</html>

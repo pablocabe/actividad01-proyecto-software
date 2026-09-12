@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de recetas | Cocina Cabe</title>
+  <meta name="description" content="Recetario casero de Pablo Cabe, agrupado en recetas saladas y dulces. Cada ficha incluye fotografía y descarga del recetario completo en PDF.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+  <a class="saltar" href="#principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <p class="marca"><a href="index.html">Cocina <span>Cabe</span></a></p>
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html" aria-current="page">Catálogo</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="principal">
+    <header class="intro">
+      <p class="intro-etiqueta">Recetario casero</p>
+      <h1>Salado y dulce, con recetario para bajar</h1>
+      <p class="intro-texto">
+        Elegí una categoría y las recetas aparecen en el centro de esta página.
+        <br>
+        Cada ficha tiene foto y un PDF con ingredientes, pasos y notas de cocina.
+      </p>
+    </header>
+
+    <section class="catalogo" aria-labelledby="titulo-catalogo">
+      <h2 id="titulo-catalogo">Catálogo de recetas</h2>
+      <p class="ayuda" id="ayuda-categoria">
+        Seleccioná <strong>Saladas</strong> o <strong>Dulces</strong> para ver solo ese grupo,
+        o <strong>Todas</strong> para mostrar el catálogo completo.
+      </p>
+
+      <!-- Radio Button Hack: inputs hermanos de los grupos, :checked ~ grupo -->
+      <input class="filtro-radio" type="radio" name="categoria" id="filtro-todas" checked
+             aria-describedby="ayuda-categoria">
+      <input class="filtro-radio" type="radio" name="categoria" id="filtro-salado"
+             aria-describedby="ayuda-categoria">
+      <input class="filtro-radio" type="radio" name="categoria" id="filtro-dulce"
+             aria-describedby="ayuda-categoria">
+
+      <ul class="filtros">
+        <li><label class="chip" for="filtro-todas">Todas</label></li>
+        <li><label class="chip chip-salado" for="filtro-salado">Saladas</label></li>
+        <li><label class="chip chip-dulce" for="filtro-dulce">Dulces</label></li>
+      </ul>
+
+      <section class="grupo grupo-salado" id="grupo-salado" aria-labelledby="titulo-salado">
+        <h3 id="titulo-salado">Recetas saladas</h3>
+        <ul class="grilla">
+          <li>
+            <article class="ficha" aria-labelledby="titulo-receta1">
+              <p class="ficha-categoria ficha-categoria-salado">Salado</p>
+              <h4 id="titulo-receta1">Locro de maíz</h4>
+              <img src="imagenes/receta1.png" width="800" height="600" alt="Locro de maíz en un plato hondo, con choclo, zapallo, porotos y carne en caldo dorado.">
+              <p class="ficha-texto">Guiso criollo de maíz blanco, zapallo y cortes de cerdo. Ideal para días fríos.</p>
+              <p class="ficha-meta"><span>6 porciones</span> <span>3 horas</span></p>
+              <a class="boton-descarga" href="recetarios/receta1.pdf" download>
+                Descargar receta en PDF
+                <span class="oculto">de locro de maíz</span>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article class="ficha" aria-labelledby="titulo-receta2">
+              <p class="ficha-categoria ficha-categoria-salado">Salado</p>
+              <h4 id="titulo-receta2">Matambre a la pizza</h4>
+              <img src="imagenes/receta2.png" width="800" height="600" alt="Matambre a la pizza cubierto con salsa de tomate, muzzarella gratinada, orégano y aceitunas.">
+              <p class="ficha-texto">Matambre de cerdo al horno, con salsa, muzzarella y orégano, cortado en porciones.</p>
+              <p class="ficha-meta"><span>6 porciones</span> <span>90 minutos</span></p>
+              <a class="boton-descarga" href="recetarios/receta2.pdf" download>
+                Descargar receta en PDF
+                <span class="oculto">de matambre a la pizza</span>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article class="ficha" aria-labelledby="titulo-receta3">
+              <p class="ficha-categoria ficha-categoria-salado">Salado</p>
+              <h4 id="titulo-receta3">Guiso de lentejas</h4>
+              <img src="imagenes/receta3.png" width="800" height="600" alt="Guiso de lentejas en una cacerola, con zanahoria, papa, morrón y chorizo.">
+              <p class="ficha-texto">Lentejas con verdura de estación y chorizo colorado. Un plato de olla para toda la semana.</p>
+              <p class="ficha-meta"><span>5 porciones</span> <span>70 minutos</span></p>
+              <a class="boton-descarga" href="recetarios/receta3.pdf" download>
+                Descargar receta en PDF
+                <span class="oculto">de guiso de lentejas</span>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="grupo grupo-dulce" id="grupo-dulce" aria-labelledby="titulo-dulce">
+        <h3 id="titulo-dulce">Recetas dulces</h3>
+        <ul class="grilla">
+          <li>
+            <article class="ficha" aria-labelledby="titulo-receta4">
+              <p class="ficha-categoria ficha-categoria-dulce">Dulce</p>
+              <h4 id="titulo-receta4">Chocotorta</h4>
+              <img src="imagenes/receta4.png" width="800" height="600" alt="Chocotorta de galletitas de chocolate y crema de dulce de leche, con una porción cortada.">
+              <p class="ficha-texto">Capas de galletitas de chocolate y crema de dulce de leche con queso. Sin horno.</p>
+              <p class="ficha-meta"><span>10 porciones</span> <span>40 minutos más frío</span></p>
+              <a class="boton-descarga" href="recetarios/receta4.pdf" download>
+                Descargar receta en PDF
+                <span class="oculto">de chocotorta</span>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article class="ficha" aria-labelledby="titulo-receta5">
+              <p class="ficha-categoria ficha-categoria-dulce">Dulce</p>
+              <h4 id="titulo-receta5">Pastelitos criollos</h4>
+              <img src="imagenes/receta5.png" width="800" height="600" alt="Pastelitos criollos fritos, dorados y con azúcar, rellenos de dulce de membrillo.">
+              <p class="ficha-texto">Masa hojaldrada frita, rellena de membrillo y terminada con azúcar. Clásico de fechas patrias.</p>
+              <p class="ficha-meta"><span>16 unidades</span> <span>80 minutos</span></p>
+              <a class="boton-descarga" href="recetarios/receta5.pdf" download>
+                Descargar receta en PDF
+                <span class="oculto">de pastelitos criollos</span>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article class="ficha" aria-labelledby="titulo-receta6">
+              <p class="ficha-categoria ficha-categoria-dulce">Dulce</p>
+              <h4 id="titulo-receta6">Panqueques con dulce de leche</h4>
+              <img src="imagenes/receta6.png" width="800" height="600" alt="Panqueques caseros enrollados, rellenos de dulce de leche y espolvoreados con azúcar impalpable.">
+              <p class="ficha-texto">Masa liviana hecha en sartén, enrollada con dulce de leche. Postre rápido de semana.</p>
+              <p class="ficha-meta"><span>8 panqueques</span> <span>35 minutos</span></p>
+              <a class="boton-descarga" href="recetarios/receta6.pdf" download>
+                Descargar receta en PDF
+                <span class="oculto">de panqueques con dulce de leche</span>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Cocina Cabe — sitio mantenido por Pablo Cabe.</p>
+    <p>Sitio estático con HTML y CSS. Sin JavaScript.</p>
+  </footer>
+</body>
+</html>
